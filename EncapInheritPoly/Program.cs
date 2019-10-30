@@ -12,7 +12,7 @@ namespace EncapInheritPoly
     {
         static void Main(string[] args)
         {
-            List<Person> personList = new List<Person>();
+            
 
             //3.1.1
             Console.WriteLine("Hello World!");
@@ -28,9 +28,9 @@ namespace EncapInheritPoly
 
             //3.1.4
             PersonHandler ph2 = new PersonHandler();
-            personList.Add(ph2.CreatePerson(44, "Calle", "Persson", 1.65, 80));
-            personList.Add(ph2.CreatePerson(66, "Olle", "Ohlsson", 1.80, 105));
-            personList.Add(ph2.CreatePerson(19, "Ulla", "Nilsson", 1.50, 55));
+            ph2.CreatePerson(44, "Calle", "Persson", 1.65, 80);
+            ph2.CreatePerson(66, "Olle", "Ohlsson", 1.80, 105);
+            ph2.CreatePerson(19, "Ulla", "Nilsson", 1.50, 55);
 
             
         }

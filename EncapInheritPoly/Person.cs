@@ -82,6 +82,8 @@ namespace EncapInheritPoly
     //3.1.2
     class PersonHandler
     {
+        List<Person> personList = new List<Person>();
+
         public void SetAge(Person pers, int age)
         {
             pers.Age = age;
@@ -97,22 +99,27 @@ namespace EncapInheritPoly
             p.Height = height;
             p.Weight = weight;
 
-            return p;
+            personList.Add(p);
         }
 
         //3.1.4
-        public bool IsPensioner(Person p)
+        public void IsPensioner(Person p)
         {
            // p.Age > 65 ? true : false;
 
-            if(p.Age > 65)
+            foreach(var p in personList)
             {
-                return true;
+                if (p.Age > 65)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+
+            
             
         }
 
