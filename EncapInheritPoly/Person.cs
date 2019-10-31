@@ -90,7 +90,7 @@ namespace EncapInheritPoly
         }
 
         //3.1.3
-        public Person CreatePerson(int age, string fname, string lname, double height, double weight)
+        public void CreatePerson(int age, string fname, string lname, double height, double weight)
         {
             Person p = new Person();
             p.Age = age;
@@ -103,7 +103,7 @@ namespace EncapInheritPoly
         }
 
         //3.1.4
-        public void IsPensioner(Person p)
+        public void IsPensioner()
         {
            // p.Age > 65 ? true : false;
 
@@ -111,29 +111,28 @@ namespace EncapInheritPoly
             {
                 if (p.Age > 65)
                 {
-                    return true;
+                    Console.WriteLine($"{p.FName} {p.LName} is a pensioner.");
                 }
                 else
                 {
-                    return false;
+                    Console.WriteLine($"{p.FName} {p.LName} is to young for that!");
                 }
             }
-
-            
-            
         }
 
-        public bool isOverweight(Person p)
+        public void isOverweight()
         {
-            if(p.Weight > 70)
+            foreach(var p in personList)
             {
-                return true;
+                if (p.Weight > 70)
+                {
+                    Console.WriteLine($"{p.FName} {p.LName} is overweight.");
+                }
+                else
+                {
+                    Console.WriteLine($"{p.FName} {p.LName} is to thin!");
+                }
             }
-            else
-            {
-                return false;
-            }
-
         }
 
 
