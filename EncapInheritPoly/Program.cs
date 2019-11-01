@@ -28,6 +28,15 @@ namespace EncapInheritPoly
     //A.14 By casting the "Animal" you get from foreach to a "Dog" and then invoke the Speak-method on the casted Dog-object
 
     //3.4
+    //Q.11 Why is polymorphism important?
+    //A.11 Because we can reuse code. Members in a Base class will be inherited by the Derived class => don't have to duplicate code
+    //Q.12 How can polymorphism be used to write cleaner and better code?
+    //A.12 We write less code since the Derived class inherit = reuse code from the Base class
+    //Q.13 What is the difference between an abstract class and an interface?
+    //A.13  An abstract class can have code/implementation, an interface cannot have any implemented methods
+    //      An abstract method can have fields, an interface cannot have fields
+    //      A class can inherit several interfaces but only one abstract class
+
 
     class Program
     {
@@ -124,12 +133,43 @@ namespace EncapInheritPoly
             Console.WriteLine();
             foreach (var animal in Animals)
             {
-                //if(animal.GetType().Name == "Dog")
+                //if(animal.GetType().Name == "Dog")    //works if the name of the dog is "Dog"
                 //if(animal.GetType() == Dog)   //also works
                 if (animal is Dog)
                 {
                     Console.WriteLine(((Dog)animal).Speak());
                 }
+            }
+
+            //3.4.7
+            List<UserError> Errors = new List<UserError>();
+            NumericInputError error1 = new NumericInputError();
+            TextInputError error2 = new TextInputError();
+            NumericInputError error3 = new NumericInputError();
+            TextInputError error4 = new TextInputError();
+            NumericInputError error5 = new NumericInputError();
+            TextInputError error6 = new TextInputError();
+            Errors.Add(error1);
+            Errors.Add(error2);
+            Errors.Add(error3);
+            Errors.Add(error4);
+            Errors.Add(error5);
+            Errors.Add(error6);
+
+            //3.4.10
+            NonBooleanInputError error7 = new NonBooleanInputError();
+            TooBigInputError error8 = new TooBigInputError();
+            NegativeInputError error9 = new NegativeInputError();
+            Errors.Add(error7);
+            Errors.Add(error8);
+            Errors.Add(error9);
+
+
+            //3.4.8
+            Console.WriteLine();
+            foreach (var error in Errors)
+            {
+                Console.WriteLine(error.UEMessage());
             }
         }
     }
