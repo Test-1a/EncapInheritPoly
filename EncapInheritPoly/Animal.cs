@@ -5,12 +5,9 @@ using System.Text;
 namespace EncapInheritPoly
 {
     //3.2.1
-    class Animal
+    abstract class Animal
     {
-        //private string name;
-        //private double weight;
-        //private int age;
-
+        //3.2.2
         public string Name { get; set; }
         public double  Weight { get; set; }
         public int Age { get; set; }
@@ -23,52 +20,14 @@ namespace EncapInheritPoly
             Age = age;
         }
 
-        //3.2.2
-        //public string Name
-        //{
-        //    get
-        //    {
-        //        return name;
-        //    }
-
-        //    set
-        //    {
-        //        name = value;
-        //    }
-        //}
-
-        //public double Weight
-        //{
-        //    get
-        //    {
-        //        return weight;
-        //    }
-
-        //    set
-        //    {
-        //        weight = value;
-        //    }
-        //}
-
-        //public int Age
-        //{
-        //    get
-        //    {
-        //        return age;
-        //    }
-
-        //    set
-        //    {
-        //        age = value;
-        //    }
-        //}
+        //3.3.1
+        public abstract string Stats();
+        
     }
 
     //3.2.4, 3.2.5
     class Horse : Animal
     {
-        //private double pullWeight;
-
         public double PullWeight { get; set; }
 
         public Horse(string name, double weight, int age, double pull) : base(name, weight, age)
@@ -76,25 +35,16 @@ namespace EncapInheritPoly
             PullWeight = pull;
         }
 
-        //public double PullWeight
-        //{
-        //    get
-        //    {
-        //        return pullWeight;
-        //    }
-
-        //    set
-        //    {
-        //        pullWeight = value;
-        //    }
-        //}
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight: {Weight.ToString()} kg, Age: {Age.ToString()} years,  PullWeight: {PullWeight.ToString()} kg";
+        }
     }
 
     //3.2.4, 3.2.5
     class Dog : Animal
     {
-        //private bool isGuardDog;
-
         public bool IsGuardDog { get; set; }
 
         public Dog(string name, double weight, int age, bool isGuardDog) : base(name, weight, age)
@@ -102,25 +52,22 @@ namespace EncapInheritPoly
             IsGuardDog = isGuardDog;
         }
 
-        //public bool IsGuardDog
-        //{
-        //    get
-        //    {
-        //        return isGuardDog;
-        //    }
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight: {Weight.ToString()} kg, \tAge: {Age.ToString()} years, \tIs a Guard Dog: {IsGuardDog.ToString()}";
+        }
 
-        //    set
-        //    {
-        //        isGuardDog = value;
-        //    }
-        //}
+        //3.3.12
+        public string Speak()
+        {
+            return "Woff!";
+        }
     }
 
     //3.2.4, 3.2.5
     class Hedgehog : Animal
     {
-        //private int numberOfSpikes;
-
         public int NumberOfSpikes { get; set; }
 
         public Hedgehog(string name, double weight, int age, int num) : base(name, weight, age)
@@ -128,25 +75,16 @@ namespace EncapInheritPoly
             NumberOfSpikes = num;
         }
 
-        //public int NumberOfSpikes
-        //{
-        //    get
-        //    {
-        //        return numberOfSpikes;
-        //    }
-
-        //    set
-        //    {
-        //        numberOfSpikes = value;
-        //    }
-        //}
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight: {Weight.ToString()}, \tAge: {Age.ToString()}, \tNumberOfSpikes: {NumberOfSpikes.ToString()}";
+        }
     }
 
     //3.2.4, 3.2.5
     class Bird : Animal
     {
-        //private double wingSpan;
-
         public double WingSpan { get; set; }
 
         public Bird(string name, double weight, int age, double wingspan) : base(name, weight, age)
@@ -154,18 +92,11 @@ namespace EncapInheritPoly
             WingSpan = wingspan;
         }
 
-        //public double WingSpan
-        //{
-        //    get
-        //    {
-        //        return wingSpan;
-        //    }
-
-        //    set
-        //    {
-        //        wingSpan = value;
-        //    }
-        //}
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight {Weight.ToString()} kg, \tAge: {Age.ToString()} years, \tWingspan: {WingSpan.ToString()} m";
+        }
     }
 
     //3.2.6
@@ -192,6 +123,12 @@ namespace EncapInheritPoly
         //        mouthVolume = value;
         //    }
         //}
+
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight {Weight.ToString()} kg, \tAge: {Age.ToString()} years, \tWingspan: {WingSpan.ToString()} m, \tMouthVolume: { MouthVolume.ToString()} l";
+        }
     }
 
     //3.2.6
@@ -203,6 +140,12 @@ namespace EncapInheritPoly
         {
             ColorOfPink = color;
         }
+
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight {Weight.ToString()} kg, \tAge: {Age.ToString()} years, \tWingspan: {WingSpan.ToString()} m, \tColorOfPink: { ColorOfPink.ToString()}";
+        }
     }
 
     //3.2.6
@@ -213,6 +156,12 @@ namespace EncapInheritPoly
         public Swan(string name, double weight, int age, double wingspan, double neckl) : base(name, weight, age, wingspan)
         {
             NeckLength = neckl;
+        }
+
+        //3.3.2
+        public override string Stats()
+        {
+            return $"Name: {Name.ToString()}, \tWeight {Weight.ToString()} kg, \tAge: {Age.ToString()} years, \tWingspan: {WingSpan.ToString()} m, \tNeckLength: { NeckLength.ToString()} m";
         }
     }
 }
