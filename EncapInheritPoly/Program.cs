@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace EncapInheritPoly
 {
+   
+
     //Answers to Questions
     //3.1
     //Q.1 Can you directly access the variables?
@@ -19,7 +21,7 @@ namespace EncapInheritPoly
     //A.7 Because a Horse cannot be casted to a Dog
     //Q.8 Which type must the List take for all your animals to be accepted
     //A.8 Type Animal since every animal can be casted to an Animal
-    //Q.10 Explain why you get the results you get fromthe Stats() printout
+    //Q.10 Explain why you get the results you get from the Stats() printout
     //A.10 Because even though you save for example a Swan as an Animal in the List, the object that Stats() 
     //        is invoked on is still a Swan so it prints a Swan's properties
     //Q.13 Try calling the method "Speak()" in Dog from the List Animals using a foreach. Why doesn't it work?
@@ -42,10 +44,9 @@ namespace EncapInheritPoly
     {
         static void Main(string[] args)
         {
-            
-
-            //3.1.1
-            Console.WriteLine("Hello World!");
+          
+        //3.1.1
+        Console.WriteLine("Hello World!");
         //    Person per = new Person();
             //per.Age = 35;
             //int t = per.Age;
@@ -103,8 +104,13 @@ namespace EncapInheritPoly
             Console.WriteLine();
             foreach (var animal in Animals)
             {
-                Console.WriteLine(animal.GetType().ToString());
-            }
+                Console.WriteLine(animal.GetType().Name + ":"); //Dog, Bird etc
+                foreach (var item in animal.GetType().GetProperties())  //Dog:
+                {                                                       //IsGuardDog
+                    Console.WriteLine($"{item.Name}");                  //Name
+                }                                                       //Weight
+                Console.WriteLine("--------");                          //Age
+            }                                                           //--------
 
             //3.3.6
             //List<Dog> doggies = new List<Dog>();
@@ -135,20 +141,25 @@ namespace EncapInheritPoly
             {
                 //if(animal.GetType().Name == "Dog")    //works if the name of the dog is "Dog"
                 //if(animal.GetType() == Dog)   //also works
-                if (animal is Dog)
+                //if(animal is Dog
+                )
+                if (animal is Dog castDog)  //the variable "castDog" is automatically casted to a Dog
                 {
-                    Console.WriteLine(((Dog)animal).Speak());
+                    Console.WriteLine(castDog.Speak());
+                    //Console.WriteLine(((Dog)animal).Speak());
                 }
             }
 
             //3.4.7
             List<UserError> Errors = new List<UserError>();
+
             NumericInputError error1 = new NumericInputError();
             TextInputError error2 = new TextInputError();
             NumericInputError error3 = new NumericInputError();
             TextInputError error4 = new TextInputError();
             NumericInputError error5 = new NumericInputError();
             TextInputError error6 = new TextInputError();
+
             Errors.Add(error1);
             Errors.Add(error2);
             Errors.Add(error3);
@@ -160,6 +171,7 @@ namespace EncapInheritPoly
             NonBooleanInputError error7 = new NonBooleanInputError();
             TooBigInputError error8 = new TooBigInputError();
             NegativeInputError error9 = new NegativeInputError();
+
             Errors.Add(error7);
             Errors.Add(error8);
             Errors.Add(error9);

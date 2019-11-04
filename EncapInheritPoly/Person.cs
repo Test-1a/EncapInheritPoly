@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EncapInheritPoly
@@ -103,22 +104,30 @@ namespace EncapInheritPoly
         }
 
         //3.1.4
-        public void IsPensioner()
+        public string IsPensioner()
         {
-           // p.Age > 65 ? true : false;
-
+            // p.Age > 65 ? true : false;
+            var result = "";
             foreach(var p in personList)
             {
-                if (p.Age > 65)
-                {
-                    Console.WriteLine($"{p.FName} {p.LName} is a pensioner.");
-                }
-                else
-                {
-                    Console.WriteLine($"{p.FName} {p.LName} is to young for that!");
-                }
+                result = p.Age > 65 ? 
+                    $"{p.FName} {p.LName} is a pensioner." : 
+                    $"{p.FName} {p.LName} is to young for that!";
+                //if (p.Age > 65)
+                //{
+                //    return ($"{p.FName} {p.LName} is a pensioner.");
+                //}
+                //else
+                //{
+                //   return ($"{p.FName} {p.LName} is to young for that!");
+                //}
             }
+            return result;
         }
+
+        public IEnumerable<Person> OverVikt => personList.Where(p => p.Weight > 70);
+        
+        
 
         public void isOverweight()
         {
